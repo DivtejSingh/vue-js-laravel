@@ -1,0 +1,49 @@
+diff a/resources/js/reseller/ResellerRegister.vue b/resources/js/reseller/ResellerRegister.vue	(rejected hunks)
+@@ -1,36 +1,38 @@
+ <template>
+     <div>
+-        <v-layout align-center justify-center>
+-            <v-col v-if="getimage.length" cols="12" lg="7">
+-
++      <v-container>
++        <v-row class="d-flex flex-wrap" align="center" justify="center">
++          <!-- IMAGE COLUMN -->
++            <v-col cols="12" lg="7" order="1" order-lg="1">
+                 <v-img
+                     v-if="getimage.length"
+                     :src="getimage[0].path"
+-    height="600px"
+-    contain
+                     alt="Reseller Image"
+                     ></v-img>
+-
+-
+             </v-col>
++    
++          <!-- FORM COLUMN -->
++          <v-col cols="12" lg="5" order="2" order-lg="2">
+             <v-form ref="form" v-model="valid" lazy-validation>
+               <v-card class="elevation-18">
+                 <v-toolbar flat color="red">
+-                        <v-toolbar-title class="mx-auto text-white">Register As Service Agent</v-toolbar-title>
++                  <v-toolbar-title class="mx-auto text-white">
++                    Register As Service Agent
++                  </v-toolbar-title>
+                 </v-toolbar>
+                 <v-card-text>
+                   <v-text-field type="number" v-model="businessform.user_role" class="d-none"></v-text-field>
+                   <v-text-field type="number" v-model="businessform.user_status" class="d-none"></v-text-field>
+-                        <v-row align-content="center">
++                  <v-row>
+                             <v-col cols="12" md="6">
+                                 <v-text-field
+                                     clearable
+                                     v-model="businessform.name"
+                                     :rules="nameRules"
+                                     :counter="50"
+                                     label="Your Name"
+                                     type="text" dense
+                                     prepend-inner-icon="mdi-account">
+                                 </v-text-field>
+                             </v-col>
+                             <v-col cols="12" md="6">

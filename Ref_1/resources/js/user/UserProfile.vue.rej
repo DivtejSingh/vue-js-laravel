@@ -1,0 +1,31 @@
+diff a/resources/js/user/UserProfile.vue b/resources/js/user/UserProfile.vue	(rejected hunks)
+@@ -27,27 +27,27 @@
+                                     </v-avatar>
+                                 </div>
+                             </v-col>
+                             <v-col cols="12" md="12" class="py-0">
+                                 <v-file-input label="Add Image" v-model="files" multiple small-chips accept="image/*" @change="addFiles" v-on:click="isHidden = true"></v-file-input>
+                             </v-col>
+                             <v-col cols="12" md="12" class="py-0">
+                                 <v-text-field label="Name" v-model="userprofile.name" :rules="nameRules" required ></v-text-field>
+                             </v-col>
+                             <v-col cols="12" md="12" class="py-0">
+                                 <v-text-field label="E-mail address" v-model="userprofile.email" :rules="emailRules" required ></v-text-field>
+                             </v-col>
+-                            <v-col cols="12" md="12" class="py-0">
++                            <!-- <v-col cols="12" md="12" class="py-0">
+                                 <v-text-field label="Username" v-model="userprofile.username" :rules="usernameRules" required ></v-text-field>
+-                            </v-col>
++                            </v-col> -->
+                             <v-col cols="12" md="12" class="py-0">
+                                 <v-autocomplete class=""
+                                                 v-model="cid"
+                                                 @change="getStatesOnChange"
+                                                 :items="countries"
+                                                 :rules="countryRules"
+                                                 label="Country"
+                                                 item-text="country"
+                                                 item-value="id">
+                                 </v-autocomplete>
+                                 <v-autocomplete class=""
+                                                 v-model="state_id"

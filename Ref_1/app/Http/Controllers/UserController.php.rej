@@ -1,0 +1,41 @@
+diff a/app/Http/Controllers/UserController.php b/app/Http/Controllers/UserController.php	(rejected hunks)
+@@ -1517,37 +1517,37 @@
+     # To get user profile data ( function end )
+ 
+     # Update User dashboard profile data( Function start )
+     public function updateUserprofiles(Request $request)
+     {
+         $User = JWTAuth::authenticate($request->token);
+         $buser_id = $User->id;
+         $data = $request->all();
+         $validator = Validator::make($data, [
+             'name' => 'required',
+             'email' => 'required',
+             'mobile_phone' => 'required',
+-            'username' => 'required',
++            // 'username' => 'required',
+             'country_id' => 'required',
+             'state_id' => 'required',
+             'city_id' => 'required'
+         ]);
+         if ($validator->fails()) {
+             return response()->json(['error' => $validator->messages()], 400);
+         } else {
+             $update_reseller = User::find($buser_id);
+             $update_reseller->name = $request->name;
+             $update_reseller->email = $request->email;
+             $update_reseller->mobile_phone = $request->mobile_phone;
+-            $update_reseller->username = $request->username;
++            // $update_reseller->username = $request->username;
+             $update_reseller->update();
+ 
+             Profile::where('user_id',$buser_id)->update([
+                 'country_id' => $request->country_id,
+                 'state_id' => $request->state_id,
+                 'city_id' => $request->city_id,
+             ]);
+ 
+             $update_avatar = Profile::Where('user_id', $buser_id)->first();
+             if($request->file('user_avatar')){
+                 $call_function = new Profile();
+                 $file = $request->file('user_avatar');
